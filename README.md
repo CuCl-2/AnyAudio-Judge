@@ -86,23 +86,14 @@ rubric     : list  # list of {dimension, question, basis} (decomposed binary ite
 | Gemini-2.5-Pro                     | holistic        | 77.72 | 80.01 |
 | **AnyAudio-Judge (this work)**     | **dynamic rubric** | **84.45** | **85.26** |
 
-### External Benchmark — PAM (correlation with human preference, ↑)
-
-| Method                           | LCC   | SRCC  | KTAU  |
-|----------------------------------|------:|------:|------:|
-| CLAPScore                        | 0.472 | 0.477 | 0.337 |
-| AQAScore (Qwen2.5-Omni-7B)       | 0.518 | 0.589 | 0.429 |
-| AQAScore (AF3-Think)             | 0.582 | 0.587 | 0.419 |
-| **AnyAudio-Judge**               | **0.614** | **0.601** | **0.435** |
-
 ---
 
 ## Installation
 
 ```bash
 # Python ≥ 3.10 is recommended.
-git clone https://github.com/<your-org>/AnyAudio-Judge-Public.git
-cd AnyAudio-Judge-Public
+git clone https://github.com/CuCl-2/AnyAudio-Judge.git
+cd AnyAudio-Judge
 pip install -r requirements.txt
 ```
 
@@ -239,11 +230,11 @@ AnyAudio-Judge/
 If you find AnyAudio-Judge helpful, please consider citing our work:
 
 ```bibtex
-@inproceedings{anyaudiojudge2026,
-  title     = {AnyAudio-Judge: A Dynamic Rubric-Based Benchmark and Evaluator for Audio Instruction Following},
-  author    = {Anonymous Authors},
-  booktitle = {Proceedings of ACL},
-  year      = {2026}
+@misc{anyaudiojudge2026,
+  title  = {AnyAudio-Judge: A Dynamic Rubric-Based Benchmark and Evaluator for Audio Instruction Following},
+  author = {Anonymous Authors},
+  year   = {2026},
+  note   = {Preprint, under submission}
 }
 ```
 
