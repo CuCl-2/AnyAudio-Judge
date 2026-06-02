@@ -1,0 +1,35 @@
+# local staging — never commit to git, this is the upload workspace
+staging/
+eval_outputs/
+
+# internal release notes (contains internal paths / PIDs)
+STATUS.md
+
+# operational scripts that drove the HF release (contain internal /apdcephfs paths)
+scripts/
+
+# python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# venv / ide
+.venv/
+venv/
+.env
+.idea/
+.vscode/
+.DS_Store
+
+# large local artifacts
+*.safetensors
+*.parquet
+*.wav
+*.mp3
+*.flac

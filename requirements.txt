@@ -1,0 +1,11 @@
+torch>=2.4
+transformers>=4.46
+accelerate>=0.34
+librosa>=0.10
+soundfile>=0.12
+datasets>=2.20
+huggingface_hub>=0.24
+numpy
+pandas
+tqdm
+openai>=1.30
