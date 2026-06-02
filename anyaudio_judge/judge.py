@@ -144,12 +144,37 @@ class AnyAudioJudge:
         trust_remote_code: bool = True,
         **kwargs,
     ) -> "AnyAudioJudge":
-        from transformers import AutoModel, AutoProcessor
+        """Load processor + model.
+
+        We don't go through ``AutoModel`` because Qwen-Omni's
+        ``*ForConditionalGeneration`` classes (the only ones that expose
+        the audio + LM heads we need) are not registered in the
+        ``AutoModel`` registry on most ``transformers`` versions. Instead
+        we read ``config.architectures[0]`` and import that class directly
+        from the top-level ``transformers`` namespace, falling back to
+        ``AutoModel`` only if the named class isn't available.
+        """
+        import transformers
+        from transformers import AutoConfig, AutoProcessor
 
         processor = AutoProcessor.from_pretrained(
             model_name_or_path, trust_remote_code=trust_remote_code
         )
-        model = AutoModel.from_pretrained(
+
+        config = AutoConfig.from_pretrained(
+            model_name_or_path, trust_remote_code=trust_remote_code
+        )
+        arch_names = list(getattr(config, "architectures", []) or [])
+        model_cls = None
+        for name in arch_names:
+            if hasattr(transformers, name):
+                model_cls = getattr(transformers, name)
+                break
+        if model_cls is None:
+            from transformers import AutoModel
+            model_cls = AutoModel
+
+        model = model_cls.from_pretrained(
             model_name_or_path,
             torch_dtype=torch_dtype,
             device_map=device_map,
