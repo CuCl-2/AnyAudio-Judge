@@ -230,11 +230,11 @@ AnyAudio-Judge/
 If you find AnyAudio-Judge helpful, please consider citing our work:
 
 ```bibtex
-@misc{anyaudiojudge2026,
-  title  = {AnyAudio-Judge: A Dynamic Rubric-Based Benchmark and Evaluator for Audio Instruction Following},
-  author = {Anonymous Authors},
-  year   = {2026},
-  note   = {Preprint, under submission}
+@article{li2026anyaudio,
+  title={AnyAudio-Judge: A Dynamic Rubric-Based Benchmark and Evaluator for Audio Instruction Following},
+  author={Li, Haitao and Tan, Tian and Yang, Yuguang and Yang, Shan and Chen, Xie},
+  journal={arXiv preprint arXiv:2606.03116},
+  year={2026}
 }
 ```
 
