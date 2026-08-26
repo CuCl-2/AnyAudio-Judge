@@ -2,6 +2,13 @@
 
 > **A Dynamic Rubric-Based Benchmark and Evaluator for Audio Instruction Following**
 
+[![arXiv](https://img.shields.io/badge/%F0%9F%93%84%20ArXiv-Paper-red.svg)](https://arxiv.org/abs/2606.03116)
+[![github](https://img.shields.io/badge/Code-Repo-black?logo=github)](https://github.com/CuCl-2/AnyAudio-Judge)
+[![Bench](https://img.shields.io/badge/%F0%9F%A4%97%20Bench-Dataset-blue)](https://huggingface.co/datasets/cucl2/AnyAudio-Judge-Bench)
+[![Corpus](https://img.shields.io/badge/%F0%9F%A4%97%20Corpus-Dataset-blue)](https://huggingface.co/datasets/cucl2/AnyAudio-Judge-Corpus)
+[![Model-7B](https://img.shields.io/badge/%F0%9F%A4%97%20Model-7B-blueviolet)](https://huggingface.co/cucl2/AnyAudio-Judge-7B)
+[![Model-30B](https://img.shields.io/badge/%F0%9F%A4%97%20Model-30B-blueviolet)](https://huggingface.co/cucl2/AnyAudio-Judge-30B)
+
 AnyAudio-Judge introduces a *dynamic rubric-based evaluation paradigm* for instruction-guided audio generation. Instead of asking a judge for a single holistic match/mismatch decision, AnyAudio-Judge dynamically decomposes each instruction into a variable number of independent, verifiable binary rubric items, evaluates each item, and aggregates the item-level probabilities into an interpretable alignment score.
 
 This repository accompanies our paper and releases:
