@@ -58,10 +58,11 @@ python evaluate_benchmark.py --judge_model cucl2/AnyAudio-Judge-7B \
 ## Citation
 
 ```bibtex
-@article{li2026anyaudio,
-  title={AnyAudio-Judge: A Dynamic Rubric-Based Benchmark and Evaluator for Audio Instruction Following},
-  author={Li, Haitao and Tan, Tian and Yang, Yuguang and Yang, Shan and Chen, Xie},
-  journal={arXiv preprint arXiv:2606.03116},
+@inproceedings{li2026anyaudio,
+  title={AnyAudio-Judge: A dynamic rubric-based benchmark and evaluator for audio instruction following},
+  author={Li, Haitao and Tan, Tian and Yuguang, Yang and Yang, Shan and Chen, Xie},
+  booktitle={Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing},
+  pages={28451--28469},
   year={2026}
 }
 ```
