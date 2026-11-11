@@ -12,30 +12,14 @@
 
 ## 🔥 News
 
-- **2026-11** — We release **[AnyAudio-Judge-Corpus-opus](https://huggingface.co/datasets/cucl2/AnyAudio-Judge-Corpus-opus)**, a rebuilt training corpus in which **rubrics and hard negatives are written by Claude Opus 5.5**, substantially improving data quality. An [online viewer](https://huggingface.co/spaces/cucl2/AnyAudio-Judge-Corpus-opus-viewer) is also available.
+- **2026-11** — We release **AnyAudio-Judge-Corpus-opus**, a rebuilt training corpus in which rubrics and hard negatives are written by **Claude Opus 5.5**, substantially improving data quality.
+  - Dataset: [`cucl2/AnyAudio-Judge-Corpus-opus`](https://huggingface.co/datasets/cucl2/AnyAudio-Judge-Corpus-opus)
+  - Online viewer: [`cucl2/AnyAudio-Judge-Corpus-opus-viewer`](https://huggingface.co/spaces/cucl2/AnyAudio-Judge-Corpus-opus-viewer)
+  - Construction specs: [`docs/`](https://huggingface.co/datasets/cucl2/AnyAudio-Judge-Corpus-opus/tree/main/docs)
 
 ## Overview
 
 AnyAudio-Judge evaluates instruction-guided audio generation (speech / sound / music / mixed audio) with **dynamic rubrics**: an instruction is decomposed into a few verifiable yes/no items, an audio-language judge answers each item, and the item-level probabilities are averaged into an interpretable alignment score.
-
-## ✨ Corpus-opus: better data with Claude Opus 5.5
-
-The original corpus (105K samples) was generated in bulk by an open-source LLM. Manual inspection revealed recurring problems:
-
-- **Rubrics**: too fine-grained (e.g. ~37 items per mixed-audio sample) and sometimes hallucinated details not in the instruction.
-- **Negatives**: perturbed instructions often rewrote everything at once (every item became *no*), relied on templates (e.g. always appending "with a long reverberant tail"), or mislabeled unchanged parts as *no*.
-
-In Corpus-opus, **Claude Opus 5.5 agents write every rubric item, answer, evidence and negative sample individually**, following explicit per-domain specs:
-
-| | Original corpus | Corpus-opus |
-|---|---|---|
-| Rubric generation | Bulk LLM generation | Written item by item; faithful to the instruction, same-dimension modifiers merged |
-| Fine-grained negatives | Often fully rewritten | Only **1–2 subtle edits**, **≤ 2 items answered *no***; diverse edit types (degree, dynamics, timing, near-synonym, extra detail…) |
-| Quality control | — | Every shard passes an automatic validator (rubric basis ⊂ instruction, label consistency, edit limits) |
-
-**Statistics**: 29,791 structured samples (speech 9,000 / sound 8,400 / music 8,200 / mix 4,191), pos : fine-grained neg : swap neg ≈ 35 : 50 : 15, ~4.6 items per sample. A ready-to-train SFT file (34,291 rows, ms-swift format) is included. Audio for sound (AudioCaps) and music (MusicBench) is provided; speech and mix audio is not released.
-
-Construction specs are in the dataset's [`docs/`](https://huggingface.co/datasets/cucl2/AnyAudio-Judge-Corpus-opus/tree/main/docs).
 
 ## Resources
 
